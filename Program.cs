@@ -26,12 +26,12 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseCors("myAppCors");
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
-app.MapGet("/", () => "Hello World!");
+// }
+app.MapGet("/", () => "API is running");
 app.MapGet("/items", async (ToDoDbContext dbContext) =>
 {
     var items = await dbContext.Items.ToListAsync();
